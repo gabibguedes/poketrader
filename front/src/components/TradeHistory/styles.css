@@ -1,0 +1,7 @@
+.title {
+  text-align: center;
+}
+.history-cards {
+  overflow: scroll;
+  height: 92vh;
+}

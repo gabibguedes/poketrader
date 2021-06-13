@@ -1,7 +1,7 @@
 FROM node:15
 
-COPY . /api
+COPY . /front
 
-WORKDIR /api
+WORKDIR /front
 
 CMD ["sh","-c", "yarn && yarn start"]

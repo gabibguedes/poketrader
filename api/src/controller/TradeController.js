@@ -24,6 +24,11 @@ const evaluateMatch = async (given, received) => {
 const makeTrade = async (req, res) => {
   const { given, received } = req.body
 
+  if (given.length === 0 || given.length > 6
+    || received.length === 0 || received.length > 6) {
+    return res.status(400).json({ message: "error", error: "Trade limit is 1 to 6 pokemons given and received" })
+  }
+
   try {
     const isFair = await evaluateMatch(given, received)
   
@@ -42,7 +47,7 @@ const makeTrade = async (req, res) => {
 
 const getTrades = async (req, res) => {
   const trades = await Trade.find()
-  return res.json(trades)
+  return res.json({ message: "success", trades })
 }
 
 const getTradeByID = async (req, res) => {
