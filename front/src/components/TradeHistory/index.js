@@ -1,27 +1,13 @@
-import {useEffect, useState} from 'react'
-import { getTrades } from '../../service/tradesAPIService'
+import { useTrade } from '../../context'
 import TradeCard from '../TradeCard'
 import './styles.css'
 
 const TradeHistory = () => {
-  const [trades, setTrades] = useState([])
-
-  const getTradesHistory = async() => {
-    try {
-      const history = await getTrades()
-      setTrades(history)
-    } catch (err) {
-      alert('Erro ao buscar historico de trocas.')
-    }
-  }
-
-  useEffect(() => {
-    getTradesHistory()
-  }, [])
-
+  const context = useTrade();
+  const { trades } = context
   return (
-    <div>
-      <h2 className="title">Historico</h2>
+    <div className="history-container">
+      <h2 className="title-history">Histórico</h2>
       <div className="history-cards">
         {trades.map((trade, idx) => <TradeCard trade={trade} key={idx}/>)}
       </div>

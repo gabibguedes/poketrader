@@ -1,7 +1,14 @@
-.title {
+.title-history {
+  padding-top: 20px;
   text-align: center;
+  font-size: 1.5rem;
 }
 .history-cards {
-  overflow: scroll;
+  overflow-y: scroll;
   height: 92vh;
+  padding: 10px;
+}
+
+.history-container{
+   /* background-color: #F6F6F6; */
 }

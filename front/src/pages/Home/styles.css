@@ -1,13 +1,9 @@
-.container {
+.show-trade-col {
   display: flex;
-  justify-content:space-between;
+  justify-content: center;
+  align-items: center;
 }
 
-.history {
-  width: 350px;
-  border-style: solid;
-  border-width: 0px 0px 0px 1px;
-  border-color: black;
-  justify-self: flex-end;
-  float:right
+.page-container{
+  /* background-color: #F6F6F6; */
 }

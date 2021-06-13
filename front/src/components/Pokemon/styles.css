@@ -1,0 +1,18 @@
+.pokemon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+  /* width: '170px';
+  height: '250px' */
+}
+
+
+.sprite {
+  /* height: 40%; */
+  width: 30%;
+}
+
+.pokemon-info{
+  font-size: 0.8rem;
+}

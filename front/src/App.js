@@ -1,8 +1,12 @@
+import TradeProvider from './context';
 import Home from './pages/Home';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <Home />
+    <TradeProvider>
+      <Home />
+    </TradeProvider>
   );
 }
 
