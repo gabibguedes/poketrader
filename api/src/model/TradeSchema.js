@@ -8,6 +8,14 @@ const tradeSchema = new mongoose.Schema({
   received: {
     type: [{ type: Number }],
     require: [true],
+  },
+  expGiven: {
+    type: Number,
+    require: true
+  },
+  expReceived: {
+    type: Number,
+    require: true
   }
 }, { timestamps: true });
 

@@ -14,13 +14,6 @@ const sumExp = async (pokemons) => {
   return totalBaseExp
 }
 
-const evaluateMatch = async (given, received) => {
-  let expGiven = await sumExp(given)
-  let expReceived = await sumExp(received)
-
-  return Math.abs(expGiven - expReceived) < FAIR_EXCHANGE_DIFERENCE
-}
-
 const makeTrade = async (req, res) => {
   const { given, received } = req.body
 
@@ -30,12 +23,17 @@ const makeTrade = async (req, res) => {
   }
 
   try {
-    const isFair = await evaluateMatch(given, received)
+    const expGiven = await sumExp(given)
+    const expReceived = await sumExp(received)
+
+    const isFair = Math.abs(expGiven - expReceived) < FAIR_EXCHANGE_DIFERENCE
   
     if (isFair) {
       const trade = await Trade.create({
         given, 
-        received
+        received,
+        expGiven,
+        expReceived
       })
       return res.json({ message: "success", isFair, trade })
     }
@@ -46,7 +44,7 @@ const makeTrade = async (req, res) => {
 }
 
 const getTrades = async (req, res) => {
-  const trades = await Trade.find()
+  const trades = await Trade.find().sort({ createdAt: 'desc' })
   return res.json({ message: "success", trades })
 }
 
