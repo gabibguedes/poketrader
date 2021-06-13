@@ -1,9 +1,9 @@
 .show-trade-col {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .page-container{
   /* background-color: #F6F6F6; */
+  margin-top: 6vh;
 }

@@ -1,7 +1,7 @@
 .trade-container {
   display: flex;
   flex-direction: column;
-  padding: 1vh 1vw 1vh 2vw;
+  padding: 1vh 1vw 1vh 1vw;
   height: 80%;
   width: 80%;
   justify-content: center;
@@ -16,6 +16,7 @@
 
 .title-change {
   font-size: 1.2rem;
+  text-align: center;
 }
 
 .x-divisor{
@@ -24,16 +25,18 @@
 
 .other-info{
   padding-top: 1vh;
+  
 }
 
 .pokemon-list{
   display: flex;
-  flex-direction: column;
+  width: 33vw;
   flex-wrap: wrap;
-  max-height: 75vh;
   align-content: center;
+  justify-content: center;
 }
 
 .exp-info{
   padding-top: 10px;
+  text-align: center;
 }

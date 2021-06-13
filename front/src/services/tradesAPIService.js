@@ -13,3 +13,12 @@ export const getTrades = async () => {
     return []
   }
 }
+
+export const postTrade = async (trade) => {
+  try {
+    const req = await tradesAPI.post('/trades', trade)
+    return req.data
+  } catch {
+    return null
+  }
+}

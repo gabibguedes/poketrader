@@ -4,8 +4,8 @@ import ShowTrade from '../../components/ShowTrade'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
-const Home = () => {
 
+const History = () => {
   return (
     <Container fluid className="page-container">
       <Row>
@@ -15,11 +15,9 @@ const Home = () => {
         <Col xs={3}>
           <TradeHistory />
         </Col>
-
       </Row>
-
     </Container>
   )
 }
 
-export default Home
+export default History

@@ -13,7 +13,7 @@ const ShowTrade = () => {
     <div className="trade-container">
       <div className="trade-show-exchange">
         <div>
-          <p className="title-change">Pokemons Entregues</p>
+          <p className="title-change"><b>Pokemons Entregues</b></p>
           <div className="pokemon-list given">
             {selectedTrade?.given.map((elem, idx) => <Pokemon id={elem} key={idx}/> )}
           </div>
@@ -21,7 +21,7 @@ const ShowTrade = () => {
         </div>
         <p className="x-divisor">X</p>
         <div>
-          <p className="title-change">Pokemons Recebidos</p>
+          <p className="title-change"><b>Pokemons Recebidos</b></p>
           <div className="pokemon-list">
             {selectedTrade?.received.map((elem, idx) => <Pokemon id={elem} key={idx} />)}
           </div>

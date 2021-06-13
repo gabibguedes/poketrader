@@ -19,6 +19,7 @@ const TradeProvider = ({ children }) => {
 
   const addToTrades = (newTrade) => {
     setTrades([newTrade, ...trades])
+    setSelectedTrade(newTrade)
   }
 
 
