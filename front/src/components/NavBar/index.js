@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 const NavBar = () => {
   return(
     <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">PokeTrader</Navbar.Brand>
+      <Navbar.Brand href="/">PokeTrader</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav>

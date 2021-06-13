@@ -26,7 +26,7 @@ const makeTrade = async (req, res) => {
     const expGiven = await sumExp(given)
     const expReceived = await sumExp(received)
 
-    const isFair = Math.abs(expGiven - expReceived) < FAIR_EXCHANGE_DIFERENCE
+    const isFair = Math.abs(expGiven - expReceived) <= FAIR_EXCHANGE_DIFERENCE
   
     if (isFair) {
       const trade = await Trade.create({

@@ -18,6 +18,7 @@ const AddPokemon = ({ onAdd }) => {
           (event) => {
             if (event.key === 'Enter') {
               onAdd(text)
+              setText('')
             }
           }
         }

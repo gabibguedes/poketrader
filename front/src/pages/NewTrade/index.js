@@ -2,10 +2,10 @@ import { useState } from "react"
 import Container from "react-bootstrap/Container"
 import Alert from "react-bootstrap/Alert"
 import Button from "react-bootstrap/Button"
-import Toast from "react-bootstrap/Toast"
 import AddPokemon from "../../components/AddPokemon"
-import PokemonToAdd from "../../components/PokemonToAdd"
+import Pokemon from "../../components/Pokemon"
 import { getPokemon } from '../../services/pokeAPIService'
+import { useHistory } from 'react-router-dom';
 
 import './styles.css'
 import { postTrade } from "../../services/tradesAPIService"
@@ -23,6 +23,8 @@ const NewTrade = () => {
 
   const contex = useTrade()
   const { addToTrades } = contex
+
+  const history = useHistory()
 
   const getPokemonFromAPI = async (text) => {
     const pokemon = await getPokemon(text.toLowerCase())
@@ -64,10 +66,11 @@ const NewTrade = () => {
   }
 
   const sendTrade = async () => {
-    if (toReceive.length === 0 && toGive.length === 0) {
+    if (toReceive.length === 0 || toGive.length === 0) {
       setAlertMessage('Escolha os pokemons para montar a troca!')
       setVariant('danger')
       setShowAlert(true)
+      return
     }
     if (Math.abs(sumExp(toReceive) - sumExp(toGive)) > FAIR_EXCHANGE_DIFERENCE) {
       setAlertMessage('A troca não é justa!')
@@ -86,13 +89,12 @@ const NewTrade = () => {
       setVariant('success')
       setShowAlert(true)
       addToTrades(newTrade.trade)
-      window.open('/history')
-      
-    } else {
-      setAlertMessage('Ocorreu um erro ao realizar a troca!')
-      setVariant('danger')
-      setShowAlert(true)
+      return history.push('/history');
     }
+    setAlertMessage('Ocorreu um erro ao realizar a troca!')
+    setVariant('danger')
+    setShowAlert(true)
+    
   }
 
   return (
@@ -118,8 +120,9 @@ const NewTrade = () => {
       />
       <div className="pokemon-to-add-list">
         {toGive.map((elem, idx) => (
-          <PokemonToAdd
-            pokemon={elem}
+          <Pokemon
+            isFromAPI
+            elem={elem}
             key={idx}
             removePokemon={() => removePokemon(elem, toGive, setToGive)}/>
         ))}
@@ -132,8 +135,9 @@ const NewTrade = () => {
       />
       <div className="pokemon-to-add-list">
         {toReceive.map((elem, idx) => (
-          <PokemonToAdd
-            pokemon={elem}
+          <Pokemon
+            isFromAPI
+            elem={elem}
             key={idx}
             removePokemon={() => removePokemon(elem, toReceive, setToReceive)} />
         ))}

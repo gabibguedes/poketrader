@@ -8,7 +8,7 @@ const Routes = () => {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path="/" exact render={() => <Redirect to="/history" /> }/>
+        <Route path="/" exact render={() => <Redirect to="/new-trade" /> }/>
         <Route path="/history" exact component={History} />
         <Route path="/new-trade" exact component={NewTrade} />
       </Switch>
