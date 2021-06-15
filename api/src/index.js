@@ -9,10 +9,11 @@ const {
   DB_USER,
   DB_PASS,
   DB_NAME,
-  DB_HOST
+  DB_HOST,
+  NODE_ENV
 } = process.env;
 
-const url = `mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}`;
+const url = `mongodb${NODE_ENV === 'production'? '+srv' : ''}://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}`;
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
   .then(() => {

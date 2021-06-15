@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+const { REACT_APP_API_URL } = process.env
+
 const tradesAPI = axios.create({
-  baseURL: `http://localhost:3001`,
+  baseURL: REACT_APP_API_URL,
 });
 
 export const getTrades = async () => {
