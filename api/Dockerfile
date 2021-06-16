@@ -4,4 +4,4 @@ COPY . /api
 
 WORKDIR /api
 
-CMD ["sh","-c", "yarn && yarn start"]
+CMD ["sh","-c", "yarn && yarn dev"]
