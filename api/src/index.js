@@ -5,7 +5,7 @@ const cors = require('cors');
 const routes = require('./routes');
 
 const {
-  API_PORT,
+  PORT,
   DB_USER,
   DB_PASS,
   DB_NAME,
@@ -29,6 +29,6 @@ app.use(express.json());
 app.use(cors());
 app.use(routes);
 
-app.listen(API_PORT, () => {
-  console.log(`Server running on port ${API_PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

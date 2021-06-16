@@ -4,7 +4,7 @@ const TradeController = require('./controller/TradeController');
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
-  return res.json({ message: "Welcome to the Poke Trader API" });
+  return res.json({ message: "Welcome to the Poke Trader API!" });
 });
 
 routes.get('/trades', TradeController.getTrades);

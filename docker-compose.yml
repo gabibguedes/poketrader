@@ -15,7 +15,6 @@ services:
       - poke_trader_network
     depends_on:
       - db
-    command: ["sh","-c", "yarn && yarn start"]
 
   db:
     container_name: poke_trader_db
