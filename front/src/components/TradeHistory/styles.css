@@ -9,6 +9,14 @@
   padding: 10px;
 }
 
-.history-container{
-   /* background-color: #F6F6F6; */
+.no-trade{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+.no-trade-text{
+  color: #808080;
 }

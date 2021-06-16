@@ -17,7 +17,7 @@ const Pokemon = ({ elem, isFromAPI, removePokemon}) => {
     } else {
       setPokemon(elem)
     }
-  }, [elem])
+  }, [elem, isFromAPI])
 
 
   return (

@@ -59,9 +59,7 @@ const NewTrade = () => {
 
   const sumExp = (arr) => {
     let sum = 0;
-    arr.map(pokemon => {
-      sum += pokemon.base_experience
-    })
+    arr.map(pokemon => sum += pokemon.base_experience)
     return sum
   }
 
@@ -73,7 +71,7 @@ const NewTrade = () => {
       return
     }
     if (Math.abs(sumExp(toReceive) - sumExp(toGive)) > FAIR_EXCHANGE_DIFERENCE) {
-      setAlertMessage('A troca não é justa!')
+      setAlertMessage(`A troca não é justa! A diferença de base experience deve ser menor que ${FAIR_EXCHANGE_DIFERENCE}!`)
       setVariant('danger')
       setShowAlert(true)
       return
@@ -94,12 +92,10 @@ const NewTrade = () => {
     setAlertMessage('Ocorreu um erro ao realizar a troca!')
     setVariant('danger')
     setShowAlert(true)
-    
   }
 
   return (
     <Container className="add-trade-container">
-
       {showAlert &&
         <div
           style={{
@@ -146,7 +142,6 @@ const NewTrade = () => {
       <div className="send-button">
         <Button variant="info" onClick={sendTrade}>Realizar Troca</Button>
       </div>
-
     </Container>
   )
 }
